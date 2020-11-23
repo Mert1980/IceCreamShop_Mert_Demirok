@@ -4,7 +4,7 @@ public class Cone implements Eatable{
     Flavor[] balls;
 
     public Cone(){
-        this.balls = new Flavor[8];
+        this.balls[0] = Flavor.CHOCOLATE;
     }
 
     public Cone(Flavor[] flavors){
@@ -18,6 +18,7 @@ public class Cone implements Eatable{
         for (Flavor flavor:balls){
             text.append(flavor).append(", ");
         }
+        text.deleteCharAt(text.length()-2);
         System.out.println(text.toString());
     }
 
