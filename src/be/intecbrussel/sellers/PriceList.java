@@ -3,9 +3,9 @@ package be.intecbrussel.sellers;
 import be.intecbrussel.eatables.Magnum;
 
 public class PriceList {
-    double ballPrice;
-    double rocketPrice;
-    double magnumStandardPrice;
+    private double ballPrice;
+    private double rocketPrice;
+    private double magnumStandardPrice;
 
     // CONSTRUCTORS
     public PriceList(){
