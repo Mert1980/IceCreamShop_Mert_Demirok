@@ -1,5 +1,5 @@
 package be.intecbrussel.sellers;
 
-public abstract interface Profitable {
-
+public interface Profitable {
+    double getProfit();
 }
