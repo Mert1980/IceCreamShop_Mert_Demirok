@@ -22,9 +22,9 @@ public class IceCreamApp {
             for (Eatable iceCream : orders) {
                 iceCream.eat();
             }
+            System.out.println("Total Profit: " + iceCreamSeller.getProfit());
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
-        System.out.println("Total Profit: " + iceCreamSeller.getProfit());
     }
 }
