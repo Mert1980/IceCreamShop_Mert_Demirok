@@ -1,7 +1,7 @@
 package be.intecbrussel.eatables;
 
 public class Magnum implements Eatable{
-    MagnumType type;
+    private MagnumType type;
 
     public Magnum(){
         this(MagnumType.MILK_CHOCOLATE);
