@@ -13,13 +13,17 @@ public class IceCreamApp {
 
         Cone.Flavor[] flavors = {Cone.Flavor.BANANA, Cone.Flavor.CHOCOLATE, Cone.Flavor.MOKKA};
 
-        Eatable order1 = iceCreamSeller.orderCone(flavors);
-        Eatable order2 = iceCreamSeller.orderIceRocket();
-        Eatable order3 = iceCreamSeller.orderMagnum(Magnum.MagnumType.ALPINE_NUTS);
+        try{
+            Eatable order1 = iceCreamSeller.orderCone(flavors);
+            Eatable order2 = iceCreamSeller.orderIceRocket();
+            Eatable order3 = iceCreamSeller.orderMagnum(Magnum.MagnumType.ALPINE_NUTS);
 
-        Eatable[] orders = {order1, order2, order3};
-        for (Eatable iceCream : orders) {
-            iceCream.eat();
+            Eatable[] orders = {order1, order2, order3};
+            for (Eatable iceCream : orders) {
+                iceCream.eat();
+            }
+        } catch (Exception e){
+            System.out.println(e.getMessage());
         }
         System.out.println("Total Profit: " + iceCreamSeller.getProfit());
     }

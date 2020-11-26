@@ -16,65 +16,55 @@ public class IceCreamCar implements IceCreamSeller {
     }
 
     @Override
-    public Eatable orderCone(Cone.Flavor[] flavors) {
-
-        if(prepareCone(flavors) == null){
-            System.out.println("Not enough cones in stock");
-            return null;
+    public Eatable orderCone(Cone.Flavor[] balls) throws NoMoreIceCreamException {
+        if (stock.getBalls() >= balls.length) {
+            if (stock.getCones() > 0) {
+                return prepareCone(balls);
+            } else {
+                throw new NoMoreIceCreamException("No more Cones in stock");
+            }
+        } else {
+            throw new NoMoreIceCreamException("Not enough Balls in stock");
         }
-        profit+= flavors.length * priceList.getBallPrice();
-        return new Cone(flavors);
     }
 
-    private Cone prepareCone(Cone.Flavor[] flavors){
-        if(stock.getBalls() >= flavors.length && stock.getCones() > 0){
-            stock.setBalls(flavors.length);
-            stock.setCones(1);
-            return new Cone(flavors);
-        } else {
-            return null;
-        }
+    private Cone prepareCone(Cone.Flavor[] balls){
+        stock.setBalls(balls.length);
+        stock.setCones(1);
+        profit+= balls.length * priceList.getBallPrice();
+        return new Cone(balls);
     }
 
     @Override
-    public IceRocket orderIceRocket() {
-        if(prepareRocket() == null){
-            System.out.println("Not enough ice rockets in stock");
-            return null;
+    public IceRocket orderIceRocket() throws NoMoreIceCreamException {
+        if(stock.getIceRockets() > 0){
+            return prepareRocket();
         }
-        profit+=priceList.getRocketPrice();
-        return new IceRocket();
+        throw new NoMoreIceCreamException("No more Ice Rocket in stock");
     }
 
     private IceRocket prepareRocket(){
-        if(stock.getIceRockets() > 0){
-            stock.setIceRockets(1);
-            return new IceRocket();
-        }
-        return null;
+        profit+=priceList.getRocketPrice();
+        stock.setIceRockets(1);
+        return new IceRocket();
     }
 
     @Override
-    public Magnum orderMagnum(Magnum.MagnumType magnumType) {
-        if(prepareMagnum(magnumType) == null){
-            System.out.println("Not enough magnums in stock");
-            return null;
+    public Magnum orderMagnum(Magnum.MagnumType magnumType) throws NoMoreIceCreamException {
+        if(stock.getMagni() > 0) {
+            return prepareMagnum(magnumType);
         }
-        profit+=priceList.getMagnumPrice(magnumType);
-        return new Magnum(magnumType);
+        throw new NoMoreIceCreamException("No more Magnum in stock");
     }
 
     public Magnum prepareMagnum(Magnum.MagnumType magnumType){
-        if(stock.getMagni() > 0){
-            stock.setMagni(1);
-            return new Magnum(magnumType);
-        }
-        return null;
+        stock.setMagni(1);
+        profit+=priceList.getMagnumPrice(magnumType);
+        return new Magnum(magnumType);
     }
 
     @Override
     public double getProfit() {
         return this.profit;
     }
-
 }

@@ -1,6 +1,6 @@
 package be.intecbrussel.sellers;
 
-public class NoMoreIceCreamException extends Exception{
+public class NoMoreIceCreamException extends RuntimeException{
     public NoMoreIceCreamException(){
         super();
     }
