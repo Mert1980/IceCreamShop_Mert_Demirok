@@ -1,7 +1,7 @@
 package be.intecbrussel.eatables;
 
 public class Cone implements Eatable{
-    Flavor[] balls;
+    private Flavor[] balls;
 
     public Cone(){
         this.balls[0] = Flavor.CHOCOLATE;

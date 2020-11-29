@@ -3,6 +3,7 @@ package be.intecbrussel.eatables;
 public class Magnum implements Eatable{
     private MagnumType type;
 
+    // CONSTRUCTORS
     public Magnum(){
         this(MagnumType.MILK_CHOCOLATE);
     }
@@ -29,7 +30,7 @@ public class Magnum implements Eatable{
 
         private double value;
 
-        private MagnumType(double value){
+        MagnumType(double value){
             this.value = value;
         }
 

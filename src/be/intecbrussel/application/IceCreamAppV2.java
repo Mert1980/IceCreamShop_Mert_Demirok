@@ -14,50 +14,54 @@ public class IceCreamAppV2 {
         Cone.Flavor[] balls = {Cone.Flavor.BANANA, Cone.Flavor.CHOCOLATE, Cone.Flavor.MOKKA};
 
         Eatable[] orders = new Eatable[10];
+
         try {
-            Eatable order1 = iceCreamSeller.orderCone(balls);
-            orders[0] = order1;
+            Eatable order = iceCreamSeller.orderCone(balls);
+            orders[0] = order;
         } catch (Exception e){
             e.printStackTrace();
         }
+
         try {
-            Eatable order2 = iceCreamSeller.orderCone(balls);
-            orders[1] = order2;
+            Eatable order = iceCreamSeller.orderIceRocket();
+            orders[1] = order;
         } catch (Exception e){
             e.printStackTrace();
         }
+
         try {
-            Eatable order3 = iceCreamSeller.orderIceRocket();
-            orders[2] = order3;
+            Eatable order = iceCreamSeller.orderMagnum(Magnum.MagnumType.ALPINE_NUTS);;
+            orders[2] = order;
         } catch (Exception e){
             e.printStackTrace();
         }
+
         try {
-            Eatable order4 = iceCreamSeller.orderIceRocket();
-            orders[3] = order4;
+            Eatable order = iceCreamSeller.orderCone(balls);
+            orders[3] = order;
         } catch (Exception e){
             e.printStackTrace();
         }
+
         try {
-            Eatable order5 = iceCreamSeller.orderMagnum(Magnum.MagnumType.ALPINE_NUTS);;
-            orders[4] = order5;
+            Eatable order = iceCreamSeller.orderIceRocket();
+            orders[4] = order;
         } catch (Exception e){
             e.printStackTrace();
         }
+
         try {
-            Eatable order6 = iceCreamSeller.orderMagnum(Magnum.MagnumType.BLACK_CHOCOLATE);
-            orders[4] = order6;
+            Eatable order = iceCreamSeller.orderMagnum(Magnum.MagnumType.BLACK_CHOCOLATE);
+            orders[5] = order;
         } catch (Exception e){
             e.printStackTrace();
         }
+
         for (Eatable iceCream : orders) {
-            if(iceCream instanceof Exception){
-                continue;
-            }
             if(iceCream != null){
                 iceCream.eat();
             }
         }
-        System.out.println("Total Profit: " + iceCreamSeller.getProfit());
+        System.out.println("Total Profit: " + "€"+iceCreamSeller.getProfit());
     }
 }

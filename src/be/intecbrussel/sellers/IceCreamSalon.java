@@ -6,8 +6,8 @@ import be.intecbrussel.eatables.IceRocket;
 import be.intecbrussel.eatables.Magnum;
 
 public class IceCreamSalon implements IceCreamSeller{
-    PriceList priceList;
-    double totalProfit;
+    private PriceList priceList;
+    private double totalProfit;
 
     public IceCreamSalon(PriceList priceList){
         this.priceList = priceList;
@@ -17,23 +17,19 @@ public class IceCreamSalon implements IceCreamSeller{
 
     @Override
     public Cone orderCone(Cone.Flavor[] flavors) {
-
         totalProfit+= flavors.length * priceList.getBallPrice();
-
         return new Cone(flavors);
     }
 
     @Override
     public IceRocket orderIceRocket() {
         totalProfit+=priceList.getRocketPrice();
-
         return new IceRocket();
     }
 
     @Override
     public Magnum orderMagnum(Magnum.MagnumType magnumType) {
         totalProfit+=priceList.getMagnumPrice(magnumType);
-
         return new Magnum(magnumType);
     }
 

@@ -6,6 +6,7 @@ public class Stock {
     private int balls;
     private int magni;
 
+    // CONSTRUCTORS
     public Stock(int iceRockets, int cones, int balls, int magni) {
         this.iceRockets = iceRockets;
         this.cones = cones;
@@ -14,7 +15,6 @@ public class Stock {
     }
 
     // SETTERS
-
     public void setIceRockets(int iceRockets) {
         this.iceRockets-= iceRockets;
     }
@@ -32,7 +32,6 @@ public class Stock {
     }
 
     // GETTERS
-
     public int getIceRockets() {
         return iceRockets;
     }
